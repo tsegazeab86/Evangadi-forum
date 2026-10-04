@@ -15,14 +15,12 @@ function Home() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    // Token ከሌለ በቀጥታ ወደ Login መመለስ
-    if (!token) {
+     if (!token) {
       navigate("/login");
       return;
     }
 
-    // 1. የተጠቃሚውን መረጃ ማረጋገጫ (Check User)
-    const checkUser = async () => {
+     const checkUser = async () => {
       try {
         const { data } = await axios.get("/users/check", {
           headers: {
@@ -37,20 +35,17 @@ function Home() {
       }
     };
 
-    // 2. ሁሉንም ጥያቄዎች ከ Backend ማምጫ (Fetch Questions)
-    const fetchQuestions = async () => {
+     const fetchQuestions = async () => {
       try {
         setLoading(true);
         
-        // ✅ የተስተካከለው Endpoint URL (ከ /questions/all-questions ይልቅ /questions)
-        const { data } = await axios.get("/questions", {
+         const { data } = await axios.get("/questions", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        // Data Structure ማረጋገጥ
-        const questionData = data.questions || data.allQuestions || data;
+         const questionData = data.questions || data.allQuestions || data;
         setQuestions(Array.isArray(questionData) ? questionData : []);
         setLoading(false);
       } catch (err) {
@@ -69,8 +64,7 @@ function Home() {
     fetchQuestions();
   }, [navigate]);
 
-  // በጥያቄዎች Title ወይም Description ላይ Search ማድረጊያ Filter
-  const filteredQuestions = questions.filter(
+   const filteredQuestions = questions.filter(
     (q) =>
       q.title?.toLowerCase().includes(search.toLowerCase()) ||
       q.description?.toLowerCase().includes(search.toLowerCase())

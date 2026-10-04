@@ -114,8 +114,7 @@ function Login() {
   );
 }
 
-// Inline Styles (ለሙከራ ያህል የተቀመጡ styling-ዎች)
-const styles = {
+ const styles = {
   container: {
     display: "flex",
     justifyContent: "center",

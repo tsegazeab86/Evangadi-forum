@@ -18,13 +18,12 @@ async function authMiddleware(req, res, next) {
     // 3. Token ትክክለኛ መሆኑን በ JWT_SECRET ማረጋገጥ
     const { username, userid } = jwt.verify(
       token,
-      process.env.JWT_SECRET || "secret_key_here"
+      process.env.JWT_SECRET || "secret_key_here",
     );
 
     // 4. የተጠቃሚውን መረጃ ለቀጣዩ Controller እንዲደርስ በ req.user ውስጥ ማስቀመጥ
     req.user = { username, userid };
 
-    // 5. ወደ ቀጣዩ ፋንክሽን/Controller እንዲያልፍ ማድረግ
     next();
   } catch (error) {
     return res

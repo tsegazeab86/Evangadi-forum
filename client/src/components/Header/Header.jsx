@@ -7,8 +7,7 @@ function Header() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  // Sign Out ማድረጊያ እና Token የማፅጃ Function
-  const handleAuthAction = () => {
+   const handleAuthAction = () => {
     if (token) {
       localStorage.removeItem("token");
       navigate("/login");

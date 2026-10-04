@@ -12,8 +12,7 @@ async function postQuestion(req, res) {
       .json({ msg: "Please provide all required fields (title and description)." });
   }
 
-  // questionid ለማመንጨት (Unique ID)
-  const questionid = "Q_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
+   const questionid = "Q_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
 
   try {
     await dbconnection.execute(
@@ -35,8 +34,7 @@ async function postQuestion(req, res) {
 // 2. Get all questions
 async function getAllQuestions(req, res) {
   try {
-    // ORDER BY ን ደህንነቱ በተጠበቀ መልኩ በ created_at (ወይም በ questionid) ማስተካከል
-    const [questions] = await dbconnection.execute(
+     const [questions] = await dbconnection.execute(
       `SELECT q.questionid, q.title, q.description, u.username 
        FROM questions q 
        JOIN users u ON q.userid = u.userid 
