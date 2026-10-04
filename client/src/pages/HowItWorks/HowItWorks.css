@@ -1,0 +1,157 @@
+.howitworks__container {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  min-height: 80vh;
+}
+
+.howitworks__wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.howitworks__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.howitworks__header h2 {
+  font-size: 32px;
+  color: #2b2b2b;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.howitworks__header p {
+  font-size: 16px;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+.steps__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.step__card {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.step__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step__number {
+  width: 45px;
+  height: 45px;
+  background-color: #516cf0;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.step__card h3 {
+  font-size: 20px;
+  color: #2b2b2b;
+  margin-bottom: 12px;
+}
+
+.step__card p {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.step__link {
+  color: #da7022;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.step__link:hover {
+  color: #b85714;
+}
+
+/* Call To Action */
+.howitworks__cta {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.howitworks__cta h3 {
+  font-size: 24px;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+.howitworks__cta p {
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+.cta__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn__primary,
+.btn__secondary {
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.btn__primary {
+  background-color: #516cf0;
+  color: #ffffff;
+}
+
+.btn__primary:hover {
+  background-color: #3b50c0;
+}
+
+.btn__secondary {
+  background-color: #f1f3f5;
+  color: #333333;
+}
+
+.btn__secondary:hover {
+  background-color: #e2e6ea;
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .howitworks__header h2 {
+    font-size: 26px;
+  }
+  
+  .cta__buttons {
+    flex-direction: column;
+  }
+}
