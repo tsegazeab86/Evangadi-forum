@@ -16,7 +16,6 @@ function QuestionDetail() {
 
   const token = localStorage.getItem("token");
 
-  // የጥያቄውን መረጃ እና መልሶችን አምጥቶ ማሳያ ፋንክሽን
   const fetchQuestionDetailsData = useCallback(async () => {
     if (!token) {
       navigate("/login");
@@ -26,13 +25,11 @@ function QuestionDetail() {
     try {
       setLoading(true);
 
-      // 1. የጥያቄውን መረጃ ማምጣት
       const questionRes = await axios.get(`/questions/${questionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setQuestion(questionRes.data.question || questionRes.data);
 
-      // 2. ለጥያቄው የተሰጡ መልሶችን ማምጣት
       const answerRes = await axios.get(`/answers/${questionId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -52,7 +49,6 @@ function QuestionDetail() {
     fetchQuestionDetailsData();
   }, [fetchQuestionDetailsData]);
 
-  // አዲስ መልስ Submit ማድረጊያ
   const handlePostAnswer = async (e) => {
     e.preventDefault();
     setErrorMessage("");
@@ -65,7 +61,6 @@ function QuestionDetail() {
     try {
       setPosting(true);
 
-      // መልስ ወደ Backend መላክ (በ backend route-ህ መሠረት /answers ወይም /answers/post-answer መሆኑን አረጋግጥ)
       await axios.post(
         "/answers",
         {
@@ -80,7 +75,6 @@ function QuestionDetail() {
       setNewAnswer("");
       setPosting(false);
 
-      // መልሶችን እንደገና Refresh አድርጎ ማምጣት
       fetchQuestionDetailsData();
     } catch (error) {
       setPosting(false);

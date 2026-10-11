@@ -1,10 +1,9 @@
 const dbconnection = require("../db/db_config");
 const { StatusCodes } = require("http-status-codes");
 
-// 1. Post a new answer (አዲስ መልስ መለጠፊያ)
 async function postAnswer(req, res) {
   const { questionid, answer } = req.body;
-  const { userid } = req.user; // ከ authMiddleware የተገኘ
+  const { userid } = req.user;  
 
   if (!questionid || !answer) {
     return res
@@ -29,7 +28,6 @@ async function postAnswer(req, res) {
   }
 }
 
-// 2. Get answers for a specific question (የአንድን ጥያቄ መልሶች ማምጫ)
 async function getAnswersByQuestionId(req, res) {
   const { questionid } = req.params;
 
@@ -52,5 +50,4 @@ async function getAnswersByQuestionId(req, res) {
   }
 }
 
-// ሁለቱንም functions በትክክል Export ማድረግ
 module.exports = { postAnswer, getAnswersByQuestionId };

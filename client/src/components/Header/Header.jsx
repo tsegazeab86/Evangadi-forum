@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
-import userAvatar from "../../assets/images/e.jpg";
+import userAvatar from "../../assets/images/E.png";
 
 function Header() {
   const navigate = useNavigate();

@@ -21,7 +21,6 @@ async function register(req, res) {
   }
 
   try {
-    // 3. Check if user already exists (username or email)
     const [existingUser] = await dbconnection.execute(
       "SELECT username, userid FROM users WHERE username = ? OR email = ?",
       [username, email],
@@ -54,7 +53,6 @@ async function register(req, res) {
   }
 }
  
-// --- LOGIN FUNCTION ---
 async function login(req, res) {
   const { email, password } = req.body;
 
@@ -78,7 +76,6 @@ async function login(req, res) {
         .json({ msg: "Invalid credentials (user not found)." });
     }
 
-    // 3. Compare the entered password with the hashed password in DB
     const isMatch = await bcrypt.compare(password, user[0].password);
 
     if (!isMatch) {
@@ -87,7 +84,6 @@ async function login(req, res) {
         .json({ msg: "Invalid credentials (wrong password)." });
     }
 
-    // 4. Generate JWT Token
     const username = user[0].username;
     const userid = user[0].userid;
 
@@ -97,7 +93,6 @@ async function login(req, res) {
       { expiresIn: "1d" }
     );
 
-    // 5. Send success response with token and user info
     return res.status(StatusCodes.OK).json({
       msg: "User logged in successfully.",
       token,

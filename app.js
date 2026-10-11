@@ -6,16 +6,13 @@ const dbconnection = require("./db/db_config");
 const app = express();
 const PORT = 5500;
 
-// 2. ከዛ በኋላ Middlewares ይገባሉ
 app.use(cors());
 app.use(express.json());
 
-// 3. Routes import ማድረግ
 const userRoute = require("./Routes/UserRoute");
 const questionRoute = require("./Routes/questionRoute");
 const authMiddleware = require("./middleware/authMiddleware");
 const answerRoute = require("./Routes/answerRoute");
-// 3. Routes import ማድረግ
 app.use("/api/answers", answerRoute);
 app.use("/api/users", userRoute);
 app.use("/api/questions", authMiddleware, questionRoute);

@@ -42,12 +42,9 @@ function Login() {
         password,
       });
 
-      // Token-ኡን በ LocalStorage ውስጥ ማስቀመጥ
       localStorage.setItem("token", response.data.token);
 
-      alert("Login Successful!");
 
-      // ወደ Home page መምራት
       navigate("/");
     } catch (error) {
       // Error handling
@@ -67,7 +64,6 @@ function Login() {
           Don't have an account? <Link to="/register">Create a new account</Link>
         </p>
 
-        {/* Error Message የማሳያ ክፍል */}
         {errorMessage && <div style={styles.errorAlert}>{errorMessage}</div>}
 
         <form onSubmit={handleSubmit} style={styles.form}>
@@ -120,11 +116,11 @@ function Login() {
     justifyContent: "center",
     alignItems: "center",
     minHeight: "80vh",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#177bde",
     padding: "20px",
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#24e8de",
     padding: "40px",
     borderRadius: "8px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
@@ -186,7 +182,7 @@ function Login() {
   },
   button: {
     padding: "12px",
-    fontSize: "16px",
+    fontSize: "26px",
     backgroundColor: "#5146d6",
     color: "#fff",
     border: "none",

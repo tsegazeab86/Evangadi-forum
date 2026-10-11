@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../../axiosConfig"; // የራስህን Axios config path እዚህ አስተካክል
+import axios from "../../axiosConfig";  
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -56,7 +56,6 @@ function Register() {
     try {
       setIsLoading(true);
 
-      // Backend Register endpoint ጥሪ
       await axios.post("/users/register", {
         username,
         firstname,
@@ -67,7 +66,6 @@ function Register() {
 
       alert("Registration successful! Please login to continue.");
 
-      // ከተመዘገበ በኋላ ወደ Login ገጽ መምራት
       navigate("/login");
     } catch (error) {
       const msg =
@@ -177,11 +175,11 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     minHeight: "85vh",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#9eb7d0",
     padding: "20px",
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#bc6262",
     padding: "40px",
     borderRadius: "8px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",

@@ -1,10 +1,9 @@
 const dbconnection = require("../db/db_config");
 const { StatusCodes } = require("http-status-codes");
 
-// 1. Post a new question
 async function postQuestion(req, res) {
   const { title, description, tag } = req.body;
-  const { userid } = req.user; // ከ authMiddleware የተገኘ userid
+  const { userid } = req.user;  
 
   if (!title || !description) {
     return res
@@ -31,7 +30,6 @@ async function postQuestion(req, res) {
   }
 }
 
-// 2. Get all questions
 async function getAllQuestions(req, res) {
   try {
      const [questions] = await dbconnection.execute(
@@ -50,7 +48,6 @@ async function getAllQuestions(req, res) {
   }
 }
 
-// 3. Get single question by ID
 async function getSingleQuestion(req, res) {
   const { questionid } = req.params;
 
